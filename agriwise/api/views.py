@@ -3,9 +3,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework.status import HTTP_400_BAD_REQUEST
 from rest_framework.views import APIView, status
 from rest_framework.response import Response
-from app.models import List, Item
 from .serializers import ListSerializer, ListDetailSerializer
-
+from app.models import List, Item
 
 class ListTODOS(APIView):
     """List all TODO lists."""
