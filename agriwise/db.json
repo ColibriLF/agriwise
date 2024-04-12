@@ -57,7 +57,7 @@
     "model": "app.list",
     "pk": 1,
     "fields": {
-        "title": "Homework",
+        "title": "Produtos Fitofarmacêuticos",
         "user": 1
     }
 },
@@ -65,7 +65,7 @@
     "model": "app.list",
     "pk": 2,
     "fields": {
-        "title": "Tasks",
+        "title": "Adubações",
         "user": 1
     }
 },
@@ -73,7 +73,7 @@
     "model": "app.list",
     "pk": 3,
     "fields": {
-        "title": "Homer's Goals",
+        "title": "Produtos Fitofarmacêuticos",
         "user": 2
     }
 },
@@ -81,7 +81,7 @@
     "model": "app.item",
     "pk": 1,
     "fields": {
-        "title": "Math",
+        "title": "Mobilização do Solo",
         "list": 1,
         "done": true,
         "created_at": "2024-03-01T21:52:45.892Z"
