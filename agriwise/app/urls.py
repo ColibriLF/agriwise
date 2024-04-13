@@ -1,8 +1,10 @@
 from django.urls import path
 from . import views
+from .models import Parcela
 
 urlpatterns = [
     path('', views.index, name='app_index'),
     path('login/', views.app_login, name='app_login'),
     path('logout/', views.app_logout, name='app_logout'),
+    path('parcelas/', views.Parcela, name='parcelas'),
 ]

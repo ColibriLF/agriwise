@@ -1,6 +1,9 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 
+from app.models import Parcela
+
+
 # Create your views here.
 def index(request):
     if request.user.is_authenticated:
@@ -22,3 +25,7 @@ def app_login(request):
 def app_logout(request):
     logout(request)
     return redirect('app_login')
+
+def parcelas_list(request, parcela_id):
+    list = get_object_or_404(Parcela, pk=id, user=request.user)
+    return render(request, 'app/parcela.html', context={'parcela': all})
