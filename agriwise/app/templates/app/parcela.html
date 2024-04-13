@@ -1,0 +1,23 @@
+{% extends "app/base_app.html" %}
+
+{% block content %}
+
+    <h3>{{parcelas.nome}}</h3>
+
+<ul>
+    {% for registo in parcelas.registo.all %}
+    <li> {{ registo.data }} - {{ registo.produto }} - {{ registo.dose }} </li>
+    {% endfor %}
+</ul>
+
+<h5> Adicionar Data </h5>
+<form method ='post' action="{% url 'add_registo' parcelas.id %}">
+    {% csrf_token %}
+    <input type="text" name="registo_title"><br/>
+    <input type="submit">
+</form>
+
+<h5> Adicionar Produto </h5>
+<h5> Adicionar Dose </h5>
+
+{% endblock %}
