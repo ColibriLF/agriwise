@@ -3,26 +3,24 @@
 {% block content %}
 
     <h3>{{parcelas.nome}}</h3>
+    <h5> {{ registo.data }} - {{ registo.produto }} - {{ registo.dose }} </h5>
 
 <ul>
-    {% for registo in parcelas.registo.all %}
-    <li> {{ registo.data }} - {{ registo.produto }} - {{ registo.dose }} </li>
 
     <h5> Adicionar Produto </h5>
-    <form method ='post' action="{% url 'add_produto' registo.id %}">
+    <form method ='post' action="{% url 'add_produto' parcelas.id %}">
         {% csrf_token %}
         <input type="text" name="produto_title"><br/>
         <input type="submit">
     </form>
 
     <h5> Adicionar Dose </h5>
-    <form method ='post' action="{% url 'add_dose' registo.id %}">
+    <form method ='post' action="{% url 'add_dose' parcelas.id %}">
         {% csrf_token %}
         <input type="text" name="dose_title"><br/>
         <input type="submit">
     </form>
 
-        {% endfor %}
 </ul>
 
 {% endblock %}
