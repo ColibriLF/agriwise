@@ -3,7 +3,10 @@ from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def index(request):
-    return  HttpResponse('Hello world1')
+    if request.user.is_authenticated:
+        return render(request, 'app/app.html')
+    else:
+        return redirect('app_login')
 
 def app_login(request):
     if request.method == 'POST':
