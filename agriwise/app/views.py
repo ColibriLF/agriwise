@@ -28,4 +28,6 @@ def app_logout(request):
 
 def parcelas_list(request, parcelas_id):
     parcelas = get_object_or_404(Parcela, pk=parcelas_id, user=request.user)
-    return HttpResponse(f'Lista de Parcelas {parcelas.nome}')
+    return render(request, 'app/parcela.html', context={
+        'parcelas' : parcelas
+    })

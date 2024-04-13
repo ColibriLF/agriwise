@@ -12,6 +12,7 @@ class Parcela(models.Model):
     area = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='parcelas')
 
+
     def __str__(self):
         return f'{self.nome}'
 
