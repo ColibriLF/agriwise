@@ -27,5 +27,4 @@ def app_logout(request):
     return redirect('app_login')
 
 def parcelas_list(request, parcela_id):
-    list = get_object_or_404(Parcela, pk=id, user=request.user)
-    return render(request, 'app/parcela.html', context={'parcela': all})
+    return HttpResponse(f'Lista de Parcelas {parcela_id}')

@@ -5,7 +5,7 @@
 <h3>Parcelas</h3>
 <ul>
     {% for parcelas in user.parcelas.all %}
-    <li>{{ parcelas.nome }} </li>
+    <li><a href="">{{ parcelas.nome }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}
