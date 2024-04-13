@@ -7,17 +7,32 @@
 <ul>
     {% for registo in parcelas.registo.all %}
     <li> {{ registo.data }} - {{ registo.produto }} - {{ registo.dose }} </li>
-    {% endfor %}
+    <h5> Adicionar Data </h5>
+    <form method ='post' action="{% url 'add_data' registo.id %}">
+        {% csrf_token %}
+        <input type="text" name="data_title"><br/>
+        <input type="submit">
+    </form>
+
+    <h5> Adicionar Produto </h5>
+    <form method ='post' action="{% url 'add_produto' registo.id %}">
+        {% csrf_token %}
+        <input type="text" name="produto_title"><br/>
+        <input type="submit">
+    </form>
+
+    <h5> Adicionar Dose </h5>
+    <form method ='post' action="{% url 'add_dose' registo.id %}">
+        {% csrf_token %}
+        <input type="text" name="dose_title"><br/>
+        <input type="submit">
+    </form>
+
+        {% endfor %}
 </ul>
 
-<h5> Adicionar Data </h5>
-<form method ='post' action="{% url 'add_registo' parcelas.id %}">
-    {% csrf_token %}
-    <input type="text" name="registo_title"><br/>
-    <input type="submit">
-</form>
 
-<h5> Adicionar Produto </h5>
+
 <h5> Adicionar Dose </h5>
 
 {% endblock %}

@@ -32,6 +32,23 @@ def parcelas_list(request, parcelas_id):
         'parcelas' : parcelas
     })
 
-def add_registo(request, parcelas_id):
-    registo_title = request.POST.get('registo_title')
-    return HttpResponse(f'Add_registo {registo_title}')
+def add_data(request, registo_id):
+    data_title = request.POST.get('data_title')
+    registo = get_object_or_404(Registo, pk=registo_id, user=request.user)
+    data = Registo(title=data_title, registo=registo)
+    data.save()
+    return HttpResponse(f'Add_data {data_title}')
+
+def add_produto(request, registo_id):
+    produto_title = request.POST.get('produto_title')
+    registo = get_object_or_404(Registo, pk=registo_id, user=request.user)
+    produto = Registo(title=produto_title, registo=registo)
+    produto.save()
+    return HttpResponse(f'Add_produto {produto_title}')
+
+def add_dose(request, registo_id):
+    dose_title = request.POST.get('dose_title')
+    registo = get_object_or_404(Registo, pk=registo_id, user=request.user)
+    dose = Registo(title=dose_title, registo=registo)
+    dose.save()
+    return HttpResponse(f'Add_produto {dose_title}')
