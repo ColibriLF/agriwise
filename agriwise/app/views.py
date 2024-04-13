@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 
-from app.models import Parcela
+from app.models import Parcela, Registo
 
 
 # Create your views here.
@@ -26,5 +26,6 @@ def app_logout(request):
     logout(request)
     return redirect('app_login')
 
-def parcelas_list(request, parcela_id):
-    return HttpResponse(f'Lista de Parcelas {parcela_id}')
+def parcelas_list(request, parcelas_id):
+    parcelas = get_object_or_404(Parcela, pk=parcelas_id, user=request.user)
+    return HttpResponse(f'Lista de Parcelas {parcelas.nome}')
