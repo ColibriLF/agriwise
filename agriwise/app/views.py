@@ -31,3 +31,7 @@ def parcelas_list(request, parcelas_id):
     return render(request, 'app/parcela.html', context={
         'parcelas' : parcelas
     })
+
+def add_registo(request, parcelas_id):
+    registo_title = request.POST.get('registo_title')
+    return HttpResponse(f'Add_registo {registo_title}')
