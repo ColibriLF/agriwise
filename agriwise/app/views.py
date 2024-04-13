@@ -1,13 +1,9 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from .models import User, List, Item
 
 # Create your views here.
 def index(request):
-    if request.user.is_authenticated:
-        return render(request, 'app/app.html')
-    else:
-        return redirect('app_login')
+    return  HttpResponse('Hello world1')
 
 def app_login(request):
     if request.method == 'POST':
@@ -23,30 +19,3 @@ def app_login(request):
 def app_logout(request):
     logout(request)
     return redirect('app_login')
-
-def todo_list(request, list_id):
-    list = get_object_or_404(List, pk=list_id, user=request.user)
-    return render(request, 'app/list.html', context={'list': list})
-
-def add_item(request, list_id):
-    item_title = request.POST.get('item_title')
-    list = get_object_or_404(List, pk=list_id, user=request.user)
-    item = Item(title=item_title, list=list)
-    item.save()
-    return redirect('todo_list', list_id=list_id)
-
-def remove_item(request, list_id, item_id):
-    list = get_object_or_404(List, pk=list_id, user=request.user)
-    item = get_object_or_404(Item, pk=item_id, list=list)
-    item.delete()
-    return redirect('todo_list', list_id=list_id)
-
-def done_item(request, list_id, item_id):
-    list = get_object_or_404(List, pk=list_id, user=request.user)
-    item = get_object_or_404(Item, pk=item_id, list=list)
-    if item.done:
-        item.done = False
-    else:
-        item.done = True
-    item.save()
-    return redirect('todo_list', list_id=list_id)
