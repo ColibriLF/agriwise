@@ -29,7 +29,7 @@ def app_logout(request):
 def parcelas_list(request, parcelas_id):
     parcelas = get_object_or_404(Parcela, pk=parcelas_id, user=request.user)
     return render(request, 'app/parcela.html', context={
-        'parcelas' : parcelas
+        'parcelas': parcelas
     })
 def add_produto(request, parcelas_id):
     if request.method == 'POST':
