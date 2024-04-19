@@ -1,12 +1,12 @@
-
 {% extends "app/base_app.html" %}
 
 {% block content %}
-
-<h3>Parcelas</h3>
-<ul>
-    {% for parcelas in user.parcelas.all %}
-    <li><a href="{% url 'parcelas_list' parcelas.id %}">{{ parcelas.nome }}</a></li>
-    {% endfor %}
-</ul>
+<div style="max-width: 800px; margin: 0 auto;">
+    <h3 style="color: #31405b; font-size: 28px; margin-bottom: 20px;">Parcelas</h3>
+    <ul style="list-style-type: none; padding: 0;">
+        {% for parcelas in user.parcelas.all %}
+        <ul style="margin-bottom: 10px;"><a href="{% url 'parcelas_list' parcelas.id %}" style="color: #007bff; text-decoration: none; transition: color 0.3s; font-size: 20px;">{{ parcelas.nome }}</a></ul>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
