@@ -10,12 +10,12 @@
     <p><strong>Área da parcela:</strong> {{parcelas.area}}</p>
     <p></p>
     <p></p>
-        <h3>Lista de Registos</h3>
+        <h2>Lista de Registos</h2>
     <p></p>
     <p></p>
         <li>
             {% for registo in parcelas.registo.all %}
-            <li>{{ registo.data }} - {{ registo.produto }} - {{ registo.dose }}</li>
+            <li><strong>Data: </strong>{{registo.data}} <strong>  /  Produto: </strong> {{ registo.produto }} <strong>  /  Dose: </strong> {{ registo.dose }}</li>
             {% endfor %}
         </li>
     <p></p>
