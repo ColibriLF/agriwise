@@ -42,12 +42,13 @@ def add_produto(request, parcelas_id):
     else:
         return HttpResponse('Acesso não permitido')
 
-def add_dose(request, parcela_id):
+def add_dose(request, parcelas_id):
     if request.method == 'POST':
         dose_title = request.POST.get('dose_title')
-        registo_dose = get_object_or_404(Parcela, pk=parcela_id)
+        registo_dose = get_object_or_404(Parcela, pk=parcelas_id)
         registo_dose.dose = dose_title
         registo_dose.save()
-        return HttpResponse(f'Dose {dose_title} adicionada ao registo {parcela_id}')
+        return HttpResponse(f'Dose {dose_title} adicionada ao registo {parcelas_id}')
     else:
         return HttpResponse('Acesso não permitido')
+
