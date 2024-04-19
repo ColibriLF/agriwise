@@ -3,44 +3,45 @@
 {% block content %}
 
 <div class="row">
-    <div class="col-lg-6">
-        <h3>{{parcelas.nome}}</h3>
-        <ul>
-            {% for registo in parcelas.registros.all %}
+        <h3>Lista de Registos da Parcela</h3><h3>"{{parcelas.nome}}"</h3>
+    <p></p>
+    <p></p>
+        <li>
+            {% for registo in parcelas.registo.all %}
             <li>{{ registo.data }} - {{ registo.produto }} - {{ registo.dose }}</li>
             {% endfor %}
-        </ul>
-    </div>
-    <div class="col-lg-6">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="text-center mb-3">
-                    <h5>Adicionar Produto</h5>
-                    <p> </p>
-                    <p></p>
-
-                    <form method="post" action="{% url 'add_produto' parcelas.id %}">
-                        {% csrf_token %}
-                        <div input type="text" name="produto_title" class="form-group">
-                            <label for="produtoInput">Produto</label>
-                            <input type="text" class="form-control" id="produtoInput" placeholder="Produto">
-                        </div>
-                        <p></p>
-                        <p></p>
-
-                        <div class="form-group">
-                            <label for="doseInput">Dose</label>
-                            <input type="text" class="form-control" id="doseInput" placeholder="Dose">
-                            <small class="form-text text-muted">Adicione a dose sob a forma de l ou g /ha.</small>
-                        </div>
-                        <p></p>
-                        <p></p>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+        </li>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
 </div>
+<div class="row">
+        <div class="text-center mb-3">
+            <h5>Adicionar Produto</h5>
+            <p> </p>
+            <p></p>
+
+            <form method="post" action="{% url 'add_produto_dose' parcelas.id %}">
+                {% csrf_token %}
+                <div input type="text" name="produto_title" class="form-group">
+                    <label for="produtoInput">Produto</label>
+                    <input type="text" class="form-control" id="produtoInput" placeholder="Produto">
+                </div>
+                <p></p>
+                <p></p>
+
+                <div class="form-group">
+                    <label for="doseInput">Dose</label>
+                    <input type="text" class="form-control" id="doseInput" placeholder="Dose">
+                    <small class="form-text text-muted">Adicione a dose sob a forma de l ou g /ha.</small>
+                </div>
+                <p></p>
+                <p></p>
+                <button type="submit" class="btn btn-primary" style="background-color: #31405b;">Submit</button>
+            </form>
+        </div>
+</div>
+
 
 {% endblock %}
