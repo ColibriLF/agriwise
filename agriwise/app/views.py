@@ -49,6 +49,6 @@ def add_parcela(request):
         area_title = request.POST.get('area_title')
         parcela = Parcela(nome=parcela_nome_title, area=area_title, user=request.user)
         parcela.save()
-        return HttpResponse(f'Parcela {parcela_nome_title} adicionada, com área de {area_title}!')
+        return HttpResponse(f'<p style="font-size: 40px;">Parcela {parcela_nome_title} adicionada, com área de {area_title} ha!</p> <a href="/app/" style="font-size: 40px;">Voltar</a>')
     else:
-        return HttpResponse('Acesso não permitido')
+        return HttpResponse('<a href="/app/" style="font-size: 40px;">Voltar</a>')

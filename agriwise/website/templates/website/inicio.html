@@ -9,35 +9,37 @@
 </head>
 <body>
 
-    <h1 style="text-align: center;color: #00ca99;">Agriwise</h1>
+    <h1 style="text-align: center; color: #00ca99;">Agriwise</h1>
 
-    <nav class="navbar bg-body-tertiary">
-        <h1 style=" color: #31405b;">Aplicação de Registos</h1>
-        <p>Current user: {{user}} (<a href="{% url 'app_logout' %}">Logout</a>)</p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary justify-content-center">
+        <h5 style="color: #31405b;">Aplicação de Registos para Agricultura</h5>
     </nav>
 
-    <a href="/app/login/"><button>Faça Login</button></a>
-    
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-6 central-column left-column">
-                <img src="https://www.cropin.com/hs-fs/hubfs/cropin_2021/smartfarm/Smartfarm-business-intelligence-solution-1.png" alt="Descrição da imagem" class="img-fluid mb-4">
-                {% block content %}
-                {% endblock %}
-            </div>
-        </div>
-        <div class="relative px-2 py-2 text-center text-xs text-token-text-secondary md:px-[60px]">
-            <span> Para mais informações referentes ao registo do caderno de campo consulte: https://www.dgadr.gov.pt/producao-integrada/caderno-de-campo</span>
-        </div>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <div class="relative px-2 py-2 text-center text-xs text-token-text-secondary md:px-[60px]">
+        <a href="/app/login/"><button class="btn btn-primary custom-bg-color">Login na aplicação</button></a>
     </div>
 
-    <button onclick="back()">back</button>
+<style>
+    .custom-bg-color {
+        background-color: #31405b;
+    }
+</style>
 
-    <script>
-        function back() {
-            window.history.back();
-        }
-    </script>
+    <div class="relative px-2 py-2 text-center text-xs text-token-text-secondary md:px-[60px]">
+        <img src="https://www.cropin.com/hs-fs/hubfs/cropin_2021/smartfarm/Smartfarm-business-intelligence-solution-1.png" alt="Descrição da imagem" class="img-fluid mb-4">
+    </div>
+
+    {% block content %}
+    {% endblock %}
 
 </body>
 </html>

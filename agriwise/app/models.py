@@ -9,7 +9,7 @@ class User(AbstractUser):
 
 class Parcela(models.Model):
     nome = models.CharField(max_length=100)
-    area = models.IntegerField()
+    area = models.FloatField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='parcelas')
 
 
