@@ -14,11 +14,9 @@ class ListPARCELAS(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        request.data['user'] = request.user.id
-
         serializer = ParcelaSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(user=request.user)
             return Response(serializer.data,status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -40,7 +38,7 @@ class DetailPARCELAS(APIView):
 
     def put(self,request, parcelas_id):
         parcela = get_object_or_404(Parcela, pk=parcelas_id, user=request.user)
-        serializer = ParcelaDetailSerializer(Parcela, data=request.data)
+        serializer = ParcelaDetailSerializer(parcela, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
