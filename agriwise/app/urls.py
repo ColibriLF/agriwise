@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .models import Parcela
+from .models import Parcela, Registo
 
 urlpatterns = [
     path('', views.index, name='app_index'),
@@ -8,5 +8,5 @@ urlpatterns = [
     path('logout/', views.app_logout, name='app_logout'),
     path('parcelas/<int:parcelas_id>/', views.parcelas_list, name='parcelas_list'),
     path('parcelas/<int:parcelas_id>/add/', views.add_produto_dose, name='add_produto_dose'),
-    path('parcelas/<int:parcelas_id>/addparcela/', views.add_parcela, name='add_parcela'),
+    path('parcelas/addparcela/', views.add_parcela, name='add_parcela'),
 ]
