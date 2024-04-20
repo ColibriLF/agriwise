@@ -10,7 +10,7 @@ class ListPARCELAS(APIView):
 
     def get(self, request):
         parcelas = Parcela.objects.filter(user=request.user)
-        serializer = ParcelaDetailSerializer(parcelas, many=True)
+        serializer = ParcelaSerializer(parcelas, many=True)
         return Response(serializer.data)
 
     def post(self, request):
