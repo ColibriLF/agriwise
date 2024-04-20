@@ -5,7 +5,7 @@
     <h3 style="color: #31405b; font-size: 28px; margin-bottom: 20px;">Parcelas</h3>
     <ul style="list-style-type: none; padding: 0;">
         {% for parcelas in user.parcelas.all %}
-        <li style="margin-bottom: 10px;"><a href="{% url 'parcelas_list' parcelas.id %}" style="color: #007bff; text-decoration: none; transition: color 0.3s; font-size: 20px;">{{ parcelas.nome }}</a></li>
+        <li style="margin-bottom: 10px;"><a href="{% url 'parcelas_list' parcelas.id %}" style="color: #007bff; text-decoration: none; transition: color 0.3s; font-size: 20px;">{{ parcelas.nome }} (<a href="{% url 'remove_parcela' parcelas.id %}">X</a>)</a></li>
         {% endfor %}
     </ul>
 

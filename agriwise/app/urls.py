@@ -11,4 +11,5 @@ urlpatterns = [
     path('parcelas/addparcela/', views.add_parcela, name='add_parcela'),
     path('parcelas/', views.add_parcela, name='add_parcela'),
     path('parcelas/removeregisto/<int:registos_id>/', views.remove_registo, name='remove_registo'),
+    path('parcelas/removeparcela/<int:parcelas_id>/', views.remove_parcela, name='remove_parcela'),
 ]

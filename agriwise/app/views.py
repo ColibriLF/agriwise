@@ -57,3 +57,8 @@ def remove_registo(request, registos_id):
     registo = get_object_or_404(Registo, pk=registos_id)
     registo.delete()
     return redirect('/app/')
+
+def remove_parcela(request, parcelas_id):
+    parcela = get_object_or_404(Parcela, pk=parcelas_id)
+    parcela.delete()
+    return redirect('/app/')
