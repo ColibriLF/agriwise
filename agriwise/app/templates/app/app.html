@@ -14,16 +14,18 @@
     <form method="post" action="{% url 'add_parcela' %}">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="produtoInput">Parcela</label>
-                    <input type="text" class="form-control" id="produtoInput" placeholder="Produto" name="parcela_nome_title">
+
+                    <input type="text" class="form-control" id="parcelaInput" placeholder="Nome da Parcela" name="parcela_nome_title">
                 </div>
                 <p></p>
                 <p></p>
 
                 <div class="form-group">
-                    <label for="Area">Area</label>
+
                     <input type="text" class="form-control" id="Area" placeholder="Area" name="area_title">
+
                     <small class="form-text text-muted">Adicione a área em hectares (ha).</small>
+
                 </div>
                 <p></p>
                 <p></p>
