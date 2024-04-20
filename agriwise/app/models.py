@@ -19,7 +19,7 @@ class Parcela(models.Model):
 
 class Registo(models.Model):
     data = models.DateField(auto_now_add=True)
-    parcela = models.ForeignKey(Parcela, on_delete=models.CASCADE, related_name='registo')
+    parcela = models.ForeignKey(Parcela, on_delete=models.CASCADE, related_name='registos')
     produto = models.CharField(max_length=100)
     dose = models.CharField(max_length=100)
 
