@@ -10,6 +10,10 @@
 </div>
 
 <div class="row">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
     <h2>Lista de Registos</h2>
     <ul>
         {% for registo in parcelas.registos.all %}
@@ -21,10 +25,14 @@
             </li>
         {% endfor %}
     </ul>
+    <p></p>
+    <p></p>
 </div>
 
 <div class="row">
     <div class="text-center mb-3">
+        <p></p>
+        <p></p>
         <h5>Adicionar Produto</h5>
         <form method="post" action="{% url 'add_produto_dose' parcelas.id %}">
             {% csrf_token %}
@@ -37,8 +45,12 @@
                 <input type="text" class="form-control" id="doseInput" placeholder="Dose" name="dose_title">
                 <small class="form-text text-muted">Adicione a dose sob a forma de l ou g /ha.</small>
             </div>
+            <p></p>
+            <p></p>
             <button type="submit" class="btn btn-primary" style="background-color: #31405b;">Submit</button>
         </form>
+        <p></p>
+        <p></p>
         <button type="button" class="btn btn-primary" style="background-color: #31405b;" onclick="window.location.href='/app/'">Voltar a Parcelas</button>
     </div>
 </div>
