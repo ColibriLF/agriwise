@@ -44,3 +44,13 @@ def add_produto_dose(request, parcelas_id):
     else:
         return HttpResponse('Acesso não permitido')
 
+def add_parcela(request, parcelas_id):
+    if request.method == 'POST':
+        parcela_title = request.POST.get('parcela_title')
+        registar = get_object_or_404(Parcela, pk=parcelas_id)
+        registar.parcela = parcela_title
+        registar.save()
+
+        return HttpResponse(f'Parcela {parcela_title} adicionada!')
+    else:
+        return HttpResponse('Acesso não permitido')
