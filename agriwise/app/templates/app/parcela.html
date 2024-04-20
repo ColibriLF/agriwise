@@ -31,16 +31,16 @@
 
             <form method="post" action="{% url 'add_produto_dose' parcelas.id %}">
                 {% csrf_token %}
-                <div input type="text" name="produto_title" class="form-group">
+                <div class="form-group">
                     <label for="produtoInput">Produto</label>
-                    <input type="text" class="form-control" id="produtoInput" placeholder="Produto">
+                    <input type="text" class="form-control" id="produtoInput" placeholder="Produto" name="produto_title">
                 </div>
                 <p></p>
                 <p></p>
 
                 <div class="form-group">
                     <label for="doseInput">Dose</label>
-                    <input type="text" class="form-control" id="doseInput" placeholder="Dose">
+                    <input type="text" class="form-control" id="doseInput" placeholder="Dose" name="dose_title">
                     <small class="form-text text-muted">Adicione a dose sob a forma de l ou g /ha.</small>
                 </div>
                 <p></p>
