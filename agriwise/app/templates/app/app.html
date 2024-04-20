@@ -5,10 +5,18 @@
     <h3 style="color: #31405b; font-size: 28px; margin-bottom: 20px;">Parcelas</h3>
     <ul style="list-style-type: none; padding: 0;">
         {% for parcelas in user.parcelas.all %}
-        <ul style="margin-bottom: 10px;"><a href="{% url 'parcelas_list' parcelas.id %}" style="color: #007bff; text-decoration: none; transition: color 0.3s; font-size: 20px;">{{ parcelas.nome }}</a></ul>
+        <li style="margin-bottom: 10px;"><a href="{% url 'parcelas_list' parcelas.id %}" style="color: #007bff; text-decoration: none; transition: color 0.3s; font-size: 20px;">{{ parcelas.nome }}</a></li>
         {% endfor %}
     </ul>
-    </div>
-</div>
 
+    <h3> Adicionar Parcela </h3>
+
+    <!-- Formulário para adicionar uma nova parcela -->
+    <form method="post">
+        {% csrf_token %}
+        <label for="nome_parcela">Nome da Parcela:</label>
+        <input type="text" id="nome_parcela" name="nome_parcela" required><br><br>
+        <button type="submit">Adicionar Parcela</button>
+    </form>
+</div>
 {% endblock %}

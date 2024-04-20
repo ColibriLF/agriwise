@@ -27,20 +27,20 @@ class ListPARCELAS(APIView):
 class DetailPARCELAS(APIView):
 
 
-    def get(self, request, parcela_id):
-        parcela = get_object_or_404(Parcela, pk=parcela_id, user=request.user)
+    def get(self, request, parcelas_id):
+        parcela = get_object_or_404(Parcela, pk=parcelas_id, user=request.user)
         serializer = ParcelaDetailSerializer(parcela, many=False)
         return Response(serializer.data)
 
-    def delete(self,request, parcela_id):
-        parcela = get_object_or_404(Parcela, pk=parcela_id, user=request.user)
+    def delete(self,request, parcelas_id):
+        parcela = get_object_or_404(Parcela, pk=parcelas_id, user=request.user)
         parcela.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-    def put(self,request, parcela_id):
-        parcela = get_object_or_404(Parcela, pk=parcela_id, user=request.user)
-        serializer = ParcelaDetailSerializer(parcela, data=request.data)
+    def put(self,request, parcelas_id):
+        parcela = get_object_or_404(Parcela, pk=parcelas_id, user=request.user)
+        serializer = ParcelaDetailSerializer(Parcela, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
