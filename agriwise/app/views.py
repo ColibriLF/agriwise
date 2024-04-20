@@ -39,9 +39,9 @@ def add_produto_dose(request, parcela_id):
         registo = Registo(produto=produto_title, dose=dose_title, parcela=parcela)
         registo.save()
 
-        return HttpResponse(f'Produto {produto_title} e dose {dose_title} adicionado à parcela {parcela_id}')
+        return redirect('/app/')
     else:
-        return HttpResponse('Acesso não permitido')
+        return redirect('/app/')
 
 def add_parcela(request):
     if request.method == 'POST':
@@ -49,6 +49,6 @@ def add_parcela(request):
         area_title = request.POST.get('area_title')
         parcela = Parcela(nome=parcela_nome_title, area=area_title, user=request.user)
         parcela.save()
-        return HttpResponse(f'Parcela {parcela_nome_title} adicionada, com área de {area_title}!')
+        return redirect('/app/')
     else:
-        return HttpResponse('Acesso não permitido')
+        return redirect('/app/')
