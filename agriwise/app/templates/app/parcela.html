@@ -21,7 +21,7 @@
                 <strong>Data:</strong> {{ registo.data }} /
                 <strong>Produto:</strong> {{ registo.produto }} /
                 <strong>Dose:</strong> {{ registo.dose }}
-                (<a href="{% url 'remove_registo' registo.id %}">X</a>)
+                <a href="{% url 'remove_registo' registo.id %}">(X)</a>
             </li>
         {% endfor %}
     </ul>
