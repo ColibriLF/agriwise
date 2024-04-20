@@ -52,3 +52,8 @@ def add_parcela(request):
         return redirect('/app/')
     else:
         return redirect('/app/')
+
+def remove_registo(request, registos_id):
+    registo = get_object_or_404(Registo, pk=registos_id)
+    registo.delete()
+    return redirect('/app/')

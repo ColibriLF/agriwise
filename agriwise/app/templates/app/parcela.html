@@ -1,54 +1,45 @@
+<!-- app/parcela.html -->
 {% extends "app/base_app.html" %}
 
 {% block content %}
 
 <div class="row">
-        <h2>Informações referentes à parcela</h2>
-    <p></p>
-    <p></p>
-    <p><strong>Nome da parcela:</strong> {{parcelas.nome}}</p>
-    <p><strong>Área da parcela:</strong> {{parcelas.area}}</p>
-    <p></p>
-    <p></p>
-        <h2>Lista de Registos</h2>
-    <p></p>
-    <p></p>
-        <li>
-            {% for registos in parcelas.registos.all %}
-            <li><strong>Data: </strong>{{registos.data}} <strong>  /  Produto: </strong> {{ registos.produto }} <strong>  /  Dose: </strong> {{ registos.dose }}</li>
-            {% endfor %}
-        </li>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+    <h2>Informações referentes à parcela</h2>
+    <p><strong>Nome da parcela:</strong> {{ parcelas.nome }}</p>
+    <p><strong>Área da parcela:</strong> {{ parcelas.area }}</p>
 </div>
+
 <div class="row">
-        <div class="text-center mb-3">
-            <h5>Adicionar Produto</h5>
-            <p> </p>
-            <p></p>
-
-            <form method="post" action="{% url 'add_produto_dose' parcelas.id %}">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="produtoInput">Produto</label>
-                    <input type="text" class="form-control" id="produtoInput" placeholder="Produto" name="produto_title">
-                </div>
-                <p></p>
-                <p></p>
-
-                <div class="form-group">
-                    <label for="doseInput">Dose</label>
-                    <input type="text" class="form-control" id="doseInput" placeholder="Dose" name="dose_title">
-                    <small class="form-text text-muted">Adicione a dose sob a forma de l ou g /ha.</small>
-                </div>
-                <p></p>
-                <p></p>
-                <button type="submit" class="btn btn-primary" style="background-color: #31405b;">Submit</button>
-            </form>
-        </div>
+    <h2>Lista de Registos</h2>
+    <ul>
+        {% for registo in parcelas.registos.all %}
+            <li>
+                <strong>Data:</strong> {{ registo.data }} /
+                <strong>Produto:</strong> {{ registo.produto }} /
+                <strong>Dose:</strong> {{ registo.dose }}
+                (<a href="{% url 'remove_registo' registo.id %}">X</a>)
+            </li>
+        {% endfor %}
+    </ul>
 </div>
 
+<div class="row">
+    <div class="text-center mb-3">
+        <h5>Adicionar Produto</h5>
+        <form method="post" action="{% url 'add_produto_dose' parcelas.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="produtoInput">Produto</label>
+                <input type="text" class="form-control" id="produtoInput" placeholder="Produto" name="produto_title">
+            </div>
+            <div class="form-group">
+                <label for="doseInput">Dose</label>
+                <input type="text" class="form-control" id="doseInput" placeholder="Dose" name="dose_title">
+                <small class="form-text text-muted">Adicione a dose sob a forma de l ou g /ha.</small>
+            </div>
+            <button type="submit" class="btn btn-primary" style="background-color: #31405b;">Submit</button>
+        </form>
+    </div>
+</div>
 
 {% endblock %}
