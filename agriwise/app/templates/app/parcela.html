@@ -14,8 +14,8 @@
     <p></p>
     <p></p>
         <li>
-            {% for registo in parcelas.registo.all %}
-            <li><strong>Data: </strong>{{registo.data}} <strong>  /  Produto: </strong> {{ registo.produto }} <strong>  /  Dose: </strong> {{ registo.dose }}</li>
+            {% for registos in parcelas.registos.all %}
+            <li><strong>Data: </strong>{{registos.data}} <strong>  /  Produto: </strong> {{ registos.produto }} <strong>  /  Dose: </strong> {{ registos.dose }}</li>
             {% endfor %}
         </li>
     <p></p>

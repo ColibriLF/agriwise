@@ -34,10 +34,8 @@ def parcelas_list(request, parcelas_id):
 def add_produto_dose(request, parcelas_id):
     if request.method == 'POST':
         produto_title = request.POST.get('produto_title')
-        registo = get_object_or_404(Parcela, pk=parcelas_id)
-        registo.produto = produto_title
         dose_title = request.POST.get('dose_title')
-        registo.dose = dose_title
+        registo = Registo(produto=produto_title, dose=dose_title)
         registo.save()
 
         return HttpResponse(f'Produto {produto_title} e dose {dose_title} adicionado à parcela {parcelas_id}')
