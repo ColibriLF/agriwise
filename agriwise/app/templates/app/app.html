@@ -11,12 +11,25 @@
 
     <h3> Adicionar Parcela </h3>
 
-    <!-- Formulário para adicionar uma nova parcela -->
-    <form method="post">
-        {% csrf_token %}
-        <label for="nome_parcela">Nome da Parcela:</label>
-        <input type="text" id="nome_parcela" name="nome_parcela" required><br><br>
-        <button type="submit">Adicionar Parcela</button>
-    </form>
+    <form method="post" action="{% url 'add_parcela' %}">
+                {% csrf_token %}
+                <div class="form-group">
+
+                    <input type="text" class="form-control" id="parcelaInput" placeholder="Nome da Parcela" name="parcela_nome_title">
+                </div>
+                <p></p>
+                <p></p>
+
+                <div class="form-group">
+
+                    <input type="text" class="form-control" id="Area" placeholder="Area" name="area_title">
+
+                    <small class="form-text text-muted">Adicione a área em hectares (ha).</small>
+
+                </div>
+                <p></p>
+                <p></p>
+                <button type="submit" class="btn btn-primary" style="background-color: #31405b;">Submit</button>
+            </form>
 </div>
 {% endblock %}

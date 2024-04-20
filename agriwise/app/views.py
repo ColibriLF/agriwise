@@ -31,26 +31,24 @@ def parcelas_list(request, parcelas_id):
     return render(request, 'app/parcela.html', context={
         'parcelas': parcelas
     })
-def add_produto_dose(request, parcelas_id):
+def add_produto_dose(request, parcela_id):
     if request.method == 'POST':
         produto_title = request.POST.get('produto_title')
-        registo = get_object_or_404(Parcela, pk=parcelas_id)
-        registo.produto = produto_title
         dose_title = request.POST.get('dose_title')
-        registo.dose = dose_title
+        parcela = get_object_or_404(Parcela, pk=parcela_id)
+        registo = Registo(produto=produto_title, dose=dose_title, parcela=parcela)
         registo.save()
 
-        return HttpResponse(f'Produto {produto_title} e dose {dose_title} adicionado à parcela {parcelas_id}')
+        return HttpResponse(f'Produto {produto_title} e dose {dose_title} adicionado à parcela {parcela_id}')
     else:
         return HttpResponse('Acesso não permitido')
 
-def add_parcela(request, parcelas_id):
+def add_parcela(request):
     if request.method == 'POST':
-        parcela_title = request.POST.get('parcela_title')
-        registar = get_object_or_404(Parcela, pk=parcelas_id)
-        registar.parcela = parcela_title
-        registar.save()
-
-        return HttpResponse(f'Parcela {parcela_title} adicionada!')
+        parcela_nome_title = request.POST.get('parcela_nome_title')
+        area_title = request.POST.get('area_title')
+        parcela = Parcela(nome=parcela_nome_title, area=area_title, user=request.user)
+        parcela.save()
+        return HttpResponse(f'Parcela {parcela_nome_title} adicionada, com área de {area_title}!')
     else:
         return HttpResponse('Acesso não permitido')
